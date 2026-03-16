@@ -1,0 +1,85 @@
+body {
+    transition: 0.3s;
+	background-color: black;
+  }
+  
+#intro{
+	margin: 55px 0px 0px 0px;
+	background-color: black;
+}
+
+/* Navbar */
+
+/* Name */
+.name {
+	
+	padding: 350px 0px 200px 100px;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;  
+}
+
+
+.name h1 {
+	box-sizing: border-box;
+	font-family: "Poppins", sans-serif;
+	color: #ffffff;
+	font-size: 12em;
+	position: absolute;
+	transform: translate(-50%, -50%);
+}
+
+.name h1:nth-child(1) {
+  color: #0000FF;
+	-webkit-text-stroke: 5px #ffffff  ;
+}
+
+.name h1:nth-child(2) {
+	color: #ffffff  ;
+	animation: animate 4s ease-in-out infinite;
+}
+
+/* Surname */
+.surname {
+	padding: 0px 0px 0px 1100px;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;  
+}
+
+
+.surname h1 {
+	box-sizing: border-box;
+	font-family: "Poppins", sans-serif;
+	color: #ffffff;
+	font-size: 12em;
+	position: absolute;
+	transform: translate(-50%, -50%);
+}
+
+.surname h1:nth-child(1) {
+  color: #0000FF;
+	-webkit-text-stroke: 5px #ffffff  ;
+}
+
+.surname h1:nth-child(2) {
+	color: #ffffff   ;
+	animation: animate 4s ease-in-out infinite;
+}
+
+/* Typewriter Effect */
+.typewriter {
+      overflow: hidden;
+      border-right: 1px solid #ffffff;
+      white-space: nowrap;
+      font-size: 44px;
+      display: inline-block;
+      font-family: monospace;
+	  color: #ffffff;
+    }
+#typewriter-container {
+  text-align: -webkit-center;
+  padding: 130px;
+}
