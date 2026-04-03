@@ -48,7 +48,7 @@ body {
 
 .lava-navbar .navbar-brand {
   color: #fff;
-  font-weight: 600;
+  font-weight: 00;
   cursor: pointer;
   transition: all 0.3s ease;
 }
@@ -110,7 +110,7 @@ body {
   background: #f05214;
   color: #fff;
   font-weight: 600;
-  padding: 0.5rem 1.5rem;
+  padding: 0.5rem 0.4rem;
   border-radius: 0.5rem;
   transition: all 0.3s ease;
 }
@@ -195,7 +195,7 @@ body {
 
 .dropdown-cta .btn-hire {
   font-size: 0.85rem;
-  padding: 0.4rem;
+  padding: 0.rem;
 }
 
 /* =====================
@@ -349,6 +349,18 @@ body {
 .hero-buttons .btn-hero-secondary:hover {
   background: #ff6600;
   color: #fff;
+}
+
+@media (max-width: 768px) {
+  .hero-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px; /* controls spacing */
+  }
+
+  .hero-buttons a {
+    width: 100%;
+  }
 }
 
 /* Trust line */
@@ -721,6 +733,7 @@ textarea {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
+  margin-bottom: 1.25rem;
 }
 
 .form-row .form-group {
@@ -785,7 +798,7 @@ textarea {
 .success-message {
   display: none;
   position: fixed;
-  top: 20px;
+  top: 80px;
   right: 20px;
   background: linear-gradient(135deg, #ff6600, #ff8c33);
   color: #fff;
