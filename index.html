@@ -703,44 +703,44 @@
       justify-content: center;
       align-items: stretch;
       gap: 0;
-      max-width: 680px;
+      max-width: 780px;
       margin: 0 auto;
-      padding: 20px 0 0;
+      padding: 28px 0 0;
       border-top: 1px solid rgba(255,255,255,0.08);
       animation: slideUp 0.7s ease-out 0.4s both;
     }
     .hero-stat {
       flex: 1;
       text-align: center;
-      padding: 0 20px;
+      padding: 0 24px;
       position: relative;
     }
     .hero-stat + .hero-stat::before {
       content: '';
       position: absolute;
-      left: 0; top: 15%; bottom: 15%;
+      left: 0; top: 10%; bottom: 10%;
       width: 1px;
       background: rgba(255,255,255,0.08);
     }
     .hero-stat .num {
       font-family: 'Manrope', sans-serif;
-      font-size: clamp(1.4rem, 2.6vw, 1.9rem);
-      font-weight: 600;
+      font-size: clamp(1.5rem, 2.8vw, 2.2rem);
+      font-weight: 800;
       color: #fff;
-      letter-spacing: -0.02em;
-      line-height: 1.1;
+      letter-spacing: -0.03em;
+      line-height: 1.0;
       display: inline-flex;
       align-items: baseline;
       justify-content: center;
       font-variant-numeric: tabular-nums;
     }
-    .hero-stat .num .unit { color: var(--primary-color); font-weight: 500; margin-left: 1px; }
+    .hero-stat .num .unit { color: var(--primary-color); font-weight: 700; margin-left: 2px; font-size: 0.85em; }
     .hero-stat .label {
       font-family: var(--mono);
-      font-size: 10.5px;
-      color: var(--text-muted);
+      font-size: 10px;
+      color: rgba(255,255,255,0.4);
       text-transform: uppercase;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.1em;
       margin-top: 6px;
       display: block;
     }
@@ -902,8 +902,8 @@
       .hero-stat { flex: 1 1 50%; padding: 10px 8px; }
       .hero-stat + .hero-stat::before { display: none; }
       .hero-stat:nth-child(3), .hero-stat:nth-child(4) { border-top: 1px solid rgba(255,255,255,0.06); }
-      .hero-stat .num { font-size: 1.45rem; }
-      .hero-stat .label { font-size: 9.5px; letter-spacing: 0.1em; }
+      .hero-stat .num { font-size: 1.7rem; }
+      .hero-stat .label { font-size: 10px; letter-spacing: 0.08em; }
       .hero-scroll { bottom: 26px; }
       .hero-scroll .scroll-label { font-size: 10.5px; letter-spacing: 0.2em; }
       .hero-scroll .scroll-label::before, .hero-scroll .scroll-label::after { width: 14px; }
@@ -923,7 +923,26 @@
       .hero-scroll { display: none; }
     }
 
-    /* ==================== INTEGRATIONS CAROUSEL ==================== */
+    /* ==================== SCROLL REVEAL ==================== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px) scale(0.96);
+      transition: opacity 1.1s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 1.1s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.revealed {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+    .reveal-delay-1 { transition-delay: 0.08s; }
+    .reveal-delay-2 { transition-delay: 0.16s; }
+    .reveal-delay-3 { transition-delay: 0.24s; }
+    .reveal-delay-4 { transition-delay: 0.32s; }
+    .reveal-delay-5 { transition-delay: 0.40s; }
+    .reveal-delay-6 { transition-delay: 0.48s; }
+
+    /* Section titles also reveal */
+    .section-title.reveal { transform: translateY(30px); }
     .integrations-section {
       padding: 90px 0 80px;
       background: linear-gradient(180deg, #0a0a0a 0%, #000 100%);
@@ -1273,16 +1292,7 @@
       overflow: hidden;
       display: flex;
       flex-direction: column;
-      animation: fadeInUp 0.6s ease-out both;
-      opacity: 1;
     }
-
-    .project-card:nth-child(1) { animation-delay: 0.1s; }
-    .project-card:nth-child(2) { animation-delay: 0.15s; }
-    .project-card:nth-child(3) { animation-delay: 0.2s; }
-    .project-card:nth-child(4) { animation-delay: 0.25s; }
-    .project-card:nth-child(5) { animation-delay: 0.3s; }
-    .project-card:nth-child(6) { animation-delay: 0.35s; }
 
     .project-card.hidden { display: none; }
 
@@ -2105,19 +2115,19 @@
 
   <!-- ==================== SERVICES SECTION ==================== -->
   <section class="services-section" id="services">
-    <h2 class="section-title">What I Offer</h2>
+    <h2 class="section-title reveal">What I Offer</h2>
     <div class="services-grid">
-      <div class="service-card">
+      <div class="service-card reveal reveal-delay-1">
         <div class="service-icon"><i class="ph ph-lightning" aria-hidden="true"></i></div>
         <h5>Automation Systems</h5>
         <p>Build intelligent workflows that sync your data, eliminate repetitive tasks, and scale your operations seamlessly.</p>
       </div>
-      <div class="service-card">
+      <div class="service-card reveal reveal-delay-2">
         <div class="service-icon"><i class="ph ph-gear" aria-hidden="true"></i></div>
         <h5>Odoo ERP Solutions</h5>
         <p>Customize and deploy Odoo ERP to streamline your business processes, from inventory to accounting.</p>
       </div>
-      <div class="service-card">
+      <div class="service-card reveal reveal-delay-3">
         <div class="service-icon"><i class="ph ph-code" aria-hidden="true"></i></div>
         <h5>Custom Development</h5>
         <p>Python, APIs, and custom integrations tailored to your unique business needs and technical requirements.</p>
@@ -2127,7 +2137,7 @@
 
   <!-- ==================== PROJECTS SECTION ==================== -->
   <section class="projects-section" id="projects">
-    <h2 class="section-title">Case Studies</h2>
+    <h2 class="section-title reveal">Case Studies</h2>
     <div class="projects-intro">
       <p>Real-world automation and ERP implementations that delivered measurable results. Click filters below to explore by category.</p>
     </div>
@@ -2141,7 +2151,7 @@
     </div>
 
     <div class="projects-grid">
-      <div class="project-card" data-category="erp" data-category-label="ERP">
+      <div class="project-card reveal reveal-delay-1" data-category="erp" data-category-label="ERP">
         <div class="project-header">
           <div class="project-icon">
             <div style="width:52px;height:52px;background:rgba(113,75,181,0.12);border:1px solid rgba(113,75,181,0.3);border-radius:12px;display:flex;align-items:center;justify-content:center;">
@@ -2175,7 +2185,7 @@
         <a href="#contact" class="project-link">View Details →</a>
       </div>
 
-      <div class="project-card" data-category="integration" data-category-label="Integration">
+      <div class="project-card reveal reveal-delay-2" data-category="integration" data-category-label="Integration">
         <div class="project-header">
           <div class="project-icon">
             <div style="width:52px;height:52px;background:rgba(150,191,71,0.12);border:1px solid rgba(150,191,71,0.3);border-radius:12px;display:flex;align-items:center;justify-content:center;">
@@ -2206,7 +2216,7 @@
         <a href="#contact" class="project-link">View Details →</a>
       </div>
 
-      <div class="project-card" data-category="automation" data-category-label="Automation">
+      <div class="project-card reveal reveal-delay-3" data-category="automation" data-category-label="Automation">
         <div class="project-header">
           <div class="project-icon">
             <div style="width:52px;height:52px;background:rgba(234,88,12,0.12);border:1px solid rgba(234,88,12,0.3);border-radius:12px;display:flex;align-items:center;justify-content:center;">
@@ -2237,7 +2247,7 @@
         <a href="#contact" class="project-link">View Details →</a>
       </div>
 
-      <div class="project-card" data-category="analytics" data-category-label="Analytics">
+      <div class="project-card reveal reveal-delay-4" data-category="analytics" data-category-label="Analytics">
         <div class="project-header">
           <div class="project-icon">
             <div style="width:52px;height:52px;background:rgba(55,118,171,0.12);border:1px solid rgba(55,118,171,0.3);border-radius:12px;display:flex;align-items:center;justify-content:center;">
@@ -2268,7 +2278,7 @@
         <a href="#contact" class="project-link">View Details →</a>
       </div>
 
-      <div class="project-card" data-category="erp" data-category-label="ERP">
+      <div class="project-card reveal reveal-delay-1" data-category="erp" data-category-label="ERP">
         <div class="project-header">
           <div class="project-icon">
             <div style="width:52px;height:52px;background:rgba(0,82,204,0.12);border:1px solid rgba(0,82,204,0.3);border-radius:12px;display:flex;align-items:center;justify-content:center;">
@@ -2298,7 +2308,7 @@
         <a href="#contact" class="project-link">View Details →</a>
       </div>
 
-      <div class="project-card" data-category="automation" data-category-label="Automation">
+      <div class="project-card reveal reveal-delay-3" data-category="automation" data-category-label="Automation">
         <div class="project-header">
           <div class="project-icon">
             <div style="width:52px;height:52px;background:rgba(55,118,171,0.12);border:1px solid rgba(55,118,171,0.3);border-radius:12px;display:flex;align-items:center;justify-content:center;">
@@ -2723,10 +2733,10 @@
         { id: 'queue',    x: 0.42, y: 0.90, label: 'QUEUE',      kind: 'logic' },
         { id: 'claude',   x: 0.62, y: 0.28, label: 'CLAUDE AI',  kind: 'dest', logo: 'claude' },
         { id: 'n8n',      x: 0.62, y: 0.58, label: 'n8n',        kind: 'dest', logo: 'n8n' },
-        { id: 'odoo',     x: 0.82, y: 0.12, label: 'ERP SYSTEM',  kind: 'dest', draw: 'erp' },
-        { id: 'shopify',  x: 0.82, y: 0.35, label: 'ECOMMERCE',   kind: 'dest', draw: 'ecom' },
-        { id: 'stripe',   x: 0.82, y: 0.58, label: 'PAYMENTS',      kind: 'dest', logo: 'stripe' },
-        { id: 'slack',    x: 0.82, y: 0.80, label: 'ALERTS',        kind: 'dest', symbol: '🔔' },
+        { id: 'odoo',     x: 0.82, y: 0.12, label: 'ERP SYSTEM',  kind: 'dest', logo: 'odoo' },
+        { id: 'shopify',  x: 0.82, y: 0.35, label: 'ECOMMERCE',   kind: 'dest', logo: 'shopify' },
+        { id: 'stripe',   x: 0.82, y: 0.58, label: 'PAYMENTS',    kind: 'dest', draw: 'stripe' },
+        { id: 'slack',    x: 0.82, y: 0.80, label: 'ALERTS',      kind: 'dest', draw: 'bell' },
       ];
 
       const edges = [
@@ -2771,195 +2781,216 @@
         const isDest = n.kind === 'dest';
         const isClaude = n.id === 'claude';
         const isDispatcher = n.id === 'router';
-        const isPayments = n.id === 'stripe';
-        const baseR = isClaude ? 16 : isDispatcher ? 11 : isPayments ? 10 : (isDest ? 14 : 4);
-        const glowR = isClaude ? 34 : isDispatcher ? 26 : isPayments ? 20 : (isDest ? 28 : 16);
 
-        const glow = ctx.createRadialGradient(x, y, 0, x, y, glowR);
-        glow.addColorStop(0, `rgba(255,102,0,${(isClaude ? 0.4 : 0.3) + pulse * 0.2})`);
+        // Unified sizing — clean, no overlap
+        const baseR = isClaude ? 15 : isDispatcher ? 10 : (n.draw === 'erp' || n.draw === 'ecom') ? 16 : isDest ? 13 : 4;
+        const glowR = isClaude ? 24 : isDispatcher ? 18 : (n.draw === 'erp' || n.draw === 'ecom') ? 22 : isDest ? 20 : 12;
+
+        // Glow — tight and controlled
+        const glow = ctx.createRadialGradient(x, y, baseR * 0.5, x, y, glowR);
+        glow.addColorStop(0, `rgba(255,102,0,${(isClaude ? 0.28 : 0.18) + pulse * 0.1})`);
         glow.addColorStop(1, 'rgba(255,102,0,0)');
         ctx.fillStyle = glow;
         ctx.beginPath();
         ctx.arc(x, y, glowR, 0, Math.PI * 2);
         ctx.fill();
 
-        if (isDest && n.logo && logos[n.logo] && logos[n.logo].complete && logos[n.logo].naturalWidth > 0) {
-          ctx.fillStyle = 'rgba(20,20,20,0.85)';
-          ctx.beginPath();
-          ctx.arc(x, y, baseR, 0, Math.PI * 2);
-          ctx.fill();
-          ctx.strokeStyle = `rgba(255,102,0,${isClaude ? 0.75 + pulse * 0.25 : 0.6 + pulse * 0.3})`;
-          ctx.lineWidth = isClaude ? 1.5 : 1.2;
-          ctx.stroke();
-          const logoSize = baseR * 1.1;
-          try { ctx.drawImage(logos[n.logo], x - logoSize / 2, y - logoSize / 2, logoSize, logoSize); } catch (e) {}
-        } else if (isDest && n.draw) {
-          // Base circle
-          ctx.fillStyle = 'rgba(20,20,20,0.85)';
-          ctx.beginPath(); ctx.arc(x, y, baseR, 0, Math.PI*2); ctx.fill();
-          ctx.strokeStyle = `rgba(255,102,0,${0.6 + pulse * 0.3})`;
-          ctx.lineWidth = 1.2; ctx.stroke();
+        const ic = `rgba(255,179,100,${0.85 + pulse * 0.1})`;
+        const ic2 = `rgba(255,179,100,0.3)`;
 
-          const ic = `rgba(255,179,100,${0.88 + pulse * 0.12})`;
-          const ic2 = `rgba(255,179,100,${0.35 + pulse * 0.1})`;
+        if (isDest && n.logo && logos[n.logo] && logos[n.logo].complete && logos[n.logo].naturalWidth > 0) {
+          // Logo node — dark circle + logo centered and fitted
+          ctx.fillStyle = 'rgba(18,18,18,0.92)';
+          ctx.beginPath(); ctx.arc(x, y, baseR, 0, Math.PI*2); ctx.fill();
+          ctx.strokeStyle = `rgba(255,102,0,${isClaude ? 0.7 + pulse*0.2 : 0.5 + pulse*0.2})`;
+          ctx.lineWidth = isClaude ? 1.4 : 1.1; ctx.stroke();
+          const logoSize = baseR * 1.05;
+          try { ctx.drawImage(logos[n.logo], x - logoSize/2, y - logoSize/2, logoSize, logoSize); } catch(e) {}
+
+        } else if (isDest && n.draw) {
+          // Base circle — same for all draw nodes
+          ctx.fillStyle = 'rgba(15,15,15,0.95)';
+          ctx.beginPath(); ctx.arc(x, y, baseR, 0, Math.PI*2); ctx.fill();
+          ctx.strokeStyle = `rgba(255,102,0,${0.55 + pulse*0.2})`; ctx.lineWidth = 1.2; ctx.stroke();
+
+          // Clip everything to the circle — NO overflow ever
+          ctx.save();
+          ctx.beginPath(); ctx.arc(x, y, baseR - 1, 0, Math.PI*2); ctx.clip();
+
+          const R = baseR; // shorthand
+          const ic  = `rgba(255,190,110,${0.88 + pulse*0.1})`;
+          const ic2 = `rgba(255,190,110,0.28)`;
 
           if (n.draw === 'erp') {
-            // ── Big gear (v3: path-based teeth) + 3 pulled-out nodes ──
-            const s = baseR * 0.72;
-            const cx2 = x - baseR * 0.05, cy2 = y - baseR * 0.05;
+            // ── Option C: Hub modules — center circle + 6 connected module boxes ──
+            const hub = R * 0.22;
+            const modW = R * 0.38, modH = R * 0.28;
+            const dist = R * 0.72;
+            const angles = [0, Math.PI/3, Math.PI*2/3, Math.PI, Math.PI*4/3, Math.PI*5/3];
 
-            // gear outer ring
-            ctx.beginPath(); ctx.arc(cx2, cy2, s, 0, Math.PI*2);
-            ctx.strokeStyle = ic; ctx.lineWidth = 1.3; ctx.stroke();
-            ctx.fillStyle = 'rgba(255,140,51,0.06)'; ctx.fill();
+            // draw connector lines first (behind modules)
+            angles.forEach(a => {
+              const mx = x + Math.cos(a) * dist, my = y + Math.sin(a) * dist;
+              ctx.beginPath();
+              ctx.moveTo(x + Math.cos(a)*hub, y + Math.sin(a)*hub);
+              ctx.lineTo(mx - Math.cos(a)*(modW*0.5), my - Math.sin(a)*(modH*0.5));
+              ctx.strokeStyle = ic2; ctx.lineWidth = 0.8;
+              ctx.setLineDash([2, 1.5]); ctx.stroke(); ctx.setLineDash([]);
+            });
 
-            // gear inner hole
-            ctx.beginPath(); ctx.arc(cx2, cy2, s*0.38, 0, Math.PI*2);
+            // center hub
+            ctx.beginPath(); ctx.arc(x, y, hub, 0, Math.PI*2);
+            ctx.fillStyle = 'rgba(255,140,51,0.15)'; ctx.fill();
             ctx.strokeStyle = ic; ctx.lineWidth = 1.2; ctx.stroke();
-            ctx.fillStyle = 'rgba(18,18,18,0.9)'; ctx.fill();
-
-            // center dot
-            ctx.beginPath(); ctx.arc(cx2, cy2, s*0.14, 0, Math.PI*2);
+            ctx.beginPath(); ctx.arc(x, y, hub*0.4, 0, Math.PI*2);
             ctx.fillStyle = ic; ctx.fill();
 
-            // 8 teeth using rotate transform trick
-            ctx.save();
-            ctx.translate(cx2, cy2);
-            for (let t = 0; t < 8; t++) {
-              ctx.save();
-              ctx.rotate((t / 8) * Math.PI * 2);
-              ctx.fillStyle = ic;
+            // 6 module boxes around center
+            angles.forEach((a, i) => {
+              const mx = x + Math.cos(a)*dist, my = y + Math.sin(a)*dist;
               ctx.beginPath();
-              ctx.roundRect(-s*0.18, -(s+s*0.32), s*0.36, s*0.36, 2);
-              ctx.fill();
-              ctx.restore();
-            }
-            ctx.restore();
-
-            // 3 satellite nodes pulled to corners with dashed lines
-            const sats = [
-              { ax: cx2 + s*0.6, ay: cy2 - s*0.6, nx: x + baseR*0.82, ny: y - baseR*0.82 },
-              { ax: cx2 + s*0.65, ay: cy2 + s*0.5, nx: x + baseR*0.88, ny: y + baseR*0.75 },
-              { ax: cx2 - s*0.7, ay: cy2 + s*0.2, nx: x - baseR*0.88, ny: y + baseR*0.3 },
-            ];
-            sats.forEach(({ ax, ay, nx, ny }) => {
-              ctx.beginPath(); ctx.moveTo(ax, ay); ctx.lineTo(nx, ny);
-              ctx.strokeStyle = ic2; ctx.lineWidth = 1;
-              ctx.setLineDash([2.5, 2]); ctx.stroke(); ctx.setLineDash([]);
-              ctx.beginPath(); ctx.arc(nx, ny, baseR * 0.28, 0, Math.PI*2);
-              ctx.strokeStyle = ic; ctx.lineWidth = 1.2; ctx.stroke();
-              ctx.fillStyle = 'rgba(255,140,51,0.12)'; ctx.fill();
-              ctx.beginPath(); ctx.arc(nx, ny, baseR * 0.1, 0, Math.PI*2);
-              ctx.fillStyle = ic; ctx.fill();
+              ctx.roundRect(mx - modW/2, my - modH/2, modW, modH, 2);
+              ctx.fillStyle = 'rgba(255,140,51,0.08)'; ctx.fill();
+              ctx.strokeStyle = ic; ctx.lineWidth = 1; ctx.stroke();
             });
 
           } else if (n.draw === 'ecom') {
-            // ── Globe (Phosphor ph-globe) offset top-left, bag badge bottom-right ──
-            const globeSize = baseR * 1.55;
-            const gx = x - baseR * 0.08, gy = y - baseR * 0.08;
+            // ── Bigger globe offset up-left + shopping bag badge bottom-right ──
+            const gr = R * 0.72;
+            const gx = x - R*0.12, gy = y - R*0.14;
 
-            // Globe: circle
-            ctx.beginPath(); ctx.arc(gx, gy, globeSize * 0.5, 0, Math.PI*2);
+            // globe outer circle
+            ctx.beginPath(); ctx.arc(gx, gy, gr, 0, Math.PI*2);
+            ctx.fillStyle = 'rgba(255,140,51,0.05)'; ctx.fill();
             ctx.strokeStyle = ic; ctx.lineWidth = 1.3; ctx.stroke();
-            ctx.fillStyle = 'rgba(255,140,51,0.04)'; ctx.fill();
 
-            // Globe: vertical meridian (bezier)
-            const gr = globeSize * 0.5;
+            // left meridian
             ctx.beginPath();
             ctx.moveTo(gx, gy - gr);
-            ctx.bezierCurveTo(gx - gr*0.45, gy - gr*0.5, gx - gr*0.45, gy + gr*0.5, gx, gy + gr);
-            ctx.strokeStyle = `rgba(255,179,100,${0.4 + pulse*0.1})`; ctx.lineWidth = 1; ctx.stroke();
+            ctx.bezierCurveTo(gx - gr*0.42, gy - gr*0.5, gx - gr*0.42, gy + gr*0.5, gx, gy + gr);
+            ctx.strokeStyle = `rgba(255,190,110,0.45)`; ctx.lineWidth = 0.9; ctx.stroke();
+            // right meridian
             ctx.beginPath();
             ctx.moveTo(gx, gy - gr);
-            ctx.bezierCurveTo(gx + gr*0.45, gy - gr*0.5, gx + gr*0.45, gy + gr*0.5, gx, gy + gr);
-            ctx.strokeStyle = `rgba(255,179,100,${0.4 + pulse*0.1})`; ctx.lineWidth = 1; ctx.stroke();
-
-            // Globe: equator ellipse
-            ctx.beginPath();
-            ctx.ellipse(gx, gy, gr, gr*0.32, 0, 0, Math.PI*2);
-            ctx.strokeStyle = `rgba(255,179,100,${0.4 + pulse*0.1})`; ctx.lineWidth = 1; ctx.stroke();
-
-            // Globe: top + bottom latitude arcs
-            ctx.beginPath();
-            ctx.ellipse(gx, gy - gr*0.5, gr*0.87, gr*0.2, 0, 0, Math.PI*2);
-            ctx.strokeStyle = `rgba(255,179,100,0.22)`; ctx.lineWidth = 0.8; ctx.stroke();
-            ctx.beginPath();
-            ctx.ellipse(gx, gy + gr*0.5, gr*0.87, gr*0.2, 0, 0, Math.PI*2);
-            ctx.strokeStyle = `rgba(255,179,100,0.22)`; ctx.lineWidth = 0.8; ctx.stroke();
-
-            // Globe: vertical axis
+            ctx.bezierCurveTo(gx + gr*0.42, gy - gr*0.5, gx + gr*0.42, gy + gr*0.5, gx, gy + gr);
+            ctx.strokeStyle = `rgba(255,190,110,0.45)`; ctx.lineWidth = 0.9; ctx.stroke();
+            // equator
+            ctx.beginPath(); ctx.ellipse(gx, gy, gr, gr*0.3, 0, 0, Math.PI*2);
+            ctx.strokeStyle = `rgba(255,190,110,0.45)`; ctx.lineWidth = 0.9; ctx.stroke();
+            // top latitude
+            ctx.beginPath(); ctx.ellipse(gx, gy - gr*0.5, gr*0.87, gr*0.17, 0, 0, Math.PI*2);
+            ctx.strokeStyle = `rgba(255,190,110,0.2)`; ctx.lineWidth = 0.7; ctx.stroke();
+            // bottom latitude
+            ctx.beginPath(); ctx.ellipse(gx, gy + gr*0.5, gr*0.87, gr*0.17, 0, 0, Math.PI*2);
+            ctx.strokeStyle = `rgba(255,190,110,0.2)`; ctx.lineWidth = 0.7; ctx.stroke();
+            // axis
             ctx.beginPath(); ctx.moveTo(gx, gy - gr); ctx.lineTo(gx, gy + gr);
-            ctx.strokeStyle = `rgba(255,179,100,0.18)`; ctx.lineWidth = 0.8; ctx.stroke();
+            ctx.strokeStyle = `rgba(255,190,110,0.15)`; ctx.lineWidth = 0.7; ctx.stroke();
 
-            // Bag badge: dark circle bottom-right
-            const bx = x + baseR * 0.52, by = y + baseR * 0.52, br = baseR * 0.46;
+            // Shopping bag badge — bottom-right, dark bg circle
+            const bx = x + R*0.44, by = y + R*0.46;
+            const br = R * 0.36;
+
             ctx.beginPath(); ctx.arc(bx, by, br + 2, 0, Math.PI*2);
-            ctx.fillStyle = '#0c0c0c'; ctx.fill();
+            ctx.fillStyle = 'rgba(8,8,8,0.97)'; ctx.fill();
             ctx.beginPath(); ctx.arc(bx, by, br, 0, Math.PI*2);
-            ctx.strokeStyle = `rgba(255,102,0,${0.7 + pulse*0.25})`; ctx.lineWidth = 1.4; ctx.stroke();
+            ctx.strokeStyle = `rgba(255,102,0,${0.65 + pulse*0.2})`; ctx.lineWidth = 1.3; ctx.stroke();
 
-            // Bag: handle arc
-            const bs = br * 0.55;
+            // bag handle — clean arc
+            const bs = br * 0.52;
             ctx.beginPath();
-            ctx.arc(bx, by - bs*0.3, bs*0.8, Math.PI * 1.1, Math.PI * 1.9, false);
-            ctx.strokeStyle = ic; ctx.lineWidth = 1.3; ctx.stroke();
-
-            // Bag: body rect
-            ctx.beginPath();
-            ctx.roundRect(bx - bs, by - bs*0.15, bs*2, bs*1.5, 2);
-            ctx.strokeStyle = ic; ctx.lineWidth = 1.3; ctx.stroke();
+            ctx.arc(bx, by - bs*0.18, bs*0.72, Math.PI * 1.12, Math.PI * 1.88, false);
+            ctx.strokeStyle = ic; ctx.lineWidth = 1.2; ctx.stroke();
+            // bag body
+            ctx.beginPath(); ctx.roundRect(bx - bs, by - bs*0.08, bs*2, bs*1.4, 2);
             ctx.fillStyle = 'rgba(255,140,51,0.1)'; ctx.fill();
-
-            // Bag: fold line
+            ctx.strokeStyle = ic; ctx.lineWidth = 1.2; ctx.stroke();
+            // fold line
             ctx.beginPath();
-            ctx.moveTo(bx - bs + 1, by + bs*0.3);
-            ctx.lineTo(bx + bs - 1, by + bs*0.3);
-            ctx.strokeStyle = `rgba(255,179,100,0.3)`; ctx.lineWidth = 0.8; ctx.stroke();
+            ctx.moveTo(bx - bs + 1, by + bs*0.32);
+            ctx.lineTo(bx + bs - 1, by + bs*0.32);
+            ctx.strokeStyle = `rgba(255,190,110,0.28)`; ctx.lineWidth = 0.7; ctx.stroke();
+
+          } else if (n.draw === 'stripe') {
+            // ── Stripe: the iconic "S" lettermark, bold and clean ──
+            const fs = R * 1.1;
+            ctx.font = `900 ${fs}px -apple-system, 'Helvetica Neue', sans-serif`;
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillStyle = `rgba(99,91,255,${0.9 + pulse*0.1})`;  // Stripe's actual purple
+            ctx.fillText('S', x, y + R*0.06);
+
+            // subtle Stripe purple ring
+            ctx.strokeStyle = `rgba(99,91,255,${0.4 + pulse*0.15})`;
+            ctx.lineWidth = 1;
+            ctx.beginPath(); ctx.arc(x, y, R*0.82, 0, Math.PI*2); ctx.stroke();
+
+          } else if (n.draw === 'bell') {
+            // ── Bell: clean geometric notification bell ──
+            const bs = R * 0.52;
+
+            // bell body — dome
+            ctx.beginPath();
+            ctx.arc(x, y - bs*0.15, bs*0.7, Math.PI, 0);
+            ctx.lineTo(x + bs*0.7, y + bs*0.4);
+            ctx.lineTo(x - bs*0.7, y + bs*0.4);
+            ctx.closePath();
+            ctx.fillStyle = 'rgba(255,140,51,0.08)'; ctx.fill();
+            ctx.strokeStyle = ic; ctx.lineWidth = 1.3; ctx.stroke();
+
+            // bell base bar
+            ctx.beginPath();
+            ctx.roundRect(x - bs*0.8, y + bs*0.38, bs*1.6, bs*0.28, 2);
+            ctx.fillStyle = ic; ctx.fill();
+
+            // bell stem top
+            ctx.beginPath();
+            ctx.moveTo(x - bs*0.18, y - bs*0.82);
+            ctx.lineTo(x + bs*0.18, y - bs*0.82);
+            ctx.strokeStyle = ic; ctx.lineWidth = 1.2;
+            ctx.lineCap = 'round'; ctx.stroke();
+
+            // clapper
+            ctx.beginPath(); ctx.arc(x, y + bs*0.72, bs*0.2, 0, Math.PI*2);
+            ctx.fillStyle = ic; ctx.fill();
+
+            // 3 pulse arcs — signal rings
+            [1.2, 1.5, 1.85].forEach((scale, i) => {
+              ctx.beginPath();
+              ctx.arc(x + bs*0.5, y - bs*0.4, bs*scale*0.35, -Math.PI*0.6, Math.PI*0.1);
+              ctx.strokeStyle = `rgba(255,190,110,${0.45 - i*0.12})`; ctx.lineWidth = 0.9; ctx.stroke();
+            });
           }
+
+          ctx.restore(); // end clip
+
         } else if (isDest && n.symbol) {
-          // Symbol node: $ for payments, 🔔 for notifications
-          ctx.fillStyle = 'rgba(20,20,20,0.85)';
-          ctx.beginPath();
-          ctx.arc(x, y, baseR, 0, Math.PI * 2);
-          ctx.fill();
-          ctx.strokeStyle = `rgba(255,102,0,${0.6 + pulse * 0.3})`;
-          ctx.lineWidth = 1.2;
-          ctx.stroke();
-          ctx.font = `bold ${Math.round(baseR * 1.05)}px sans-serif`;
-          ctx.textAlign = 'center';
-          ctx.textBaseline = 'middle';
-          ctx.fillStyle = `rgba(255,179,100,${0.85 + pulse * 0.15})`;
-          ctx.fillText(n.symbol, x, y);
+          ctx.fillStyle = 'rgba(18,18,18,0.92)';
+          ctx.beginPath(); ctx.arc(x, y, baseR, 0, Math.PI*2); ctx.fill();
+          ctx.strokeStyle = `rgba(255,102,0,${0.5 + pulse*0.2})`; ctx.lineWidth = 1.1; ctx.stroke();
+          ctx.font = `bold ${Math.round(baseR * 0.95)}px sans-serif`;
+          ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+          ctx.fillStyle = ic; ctx.fillText(n.symbol, x, y);
+
         } else if (isDispatcher) {
-          // Dispatcher: larger filled hub with double ring to signal it's the central orchestrator
-          ctx.fillStyle = 'rgba(255,140,51,0.15)';
-          ctx.beginPath();
-          ctx.arc(x, y, baseR, 0, Math.PI * 2);
-          ctx.fill();
-          ctx.strokeStyle = `rgba(255,140,51,${0.8 + pulse * 0.2})`;
-          ctx.lineWidth = 1.5;
-          ctx.stroke();
-          // inner dot
+          // Dispatcher hub — clean double ring, no overflow
+          ctx.fillStyle = 'rgba(255,140,51,0.1)';
+          ctx.beginPath(); ctx.arc(x, y, baseR, 0, Math.PI*2); ctx.fill();
+          ctx.strokeStyle = `rgba(255,140,51,${0.75 + pulse*0.2})`; ctx.lineWidth = 1.3; ctx.stroke();
+          // inner ring
+          ctx.strokeStyle = `rgba(255,102,0,${0.25 + pulse*0.15})`; ctx.lineWidth = 0.8;
+          ctx.beginPath(); ctx.arc(x, y, baseR*0.65, 0, Math.PI*2); ctx.stroke();
+          // center dot
           ctx.fillStyle = '#ff8c33';
-          ctx.beginPath();
-          ctx.arc(x, y, 4, 0, Math.PI * 2);
-          ctx.fill();
-          // outer ring
-          ctx.strokeStyle = `rgba(255,102,0,${0.3 + pulse * 0.2})`;
-          ctx.lineWidth = 1;
-          ctx.beginPath();
-          ctx.arc(x, y, baseR + 5, 0, Math.PI * 2);
-          ctx.stroke();
+          ctx.beginPath(); ctx.arc(x, y, 3, 0, Math.PI*2); ctx.fill();
+
         } else {
-          ctx.strokeStyle = `rgba(255,102,0,${0.5 + pulse * 0.3})`;
-          ctx.lineWidth = 1;
-          ctx.beginPath();
-          ctx.arc(x, y, baseR + 4, 0, Math.PI * 2);
-          ctx.stroke();
+          // Trigger/logic nodes — simple dot
+          ctx.strokeStyle = `rgba(255,102,0,${0.45 + pulse*0.25})`;
+          ctx.lineWidth = 0.9;
+          ctx.beginPath(); ctx.arc(x, y, baseR+3, 0, Math.PI*2); ctx.stroke();
           ctx.fillStyle = '#ff8c33';
-          ctx.beginPath();
-          ctx.arc(x, y, baseR, 0, Math.PI * 2);
-          ctx.fill();
+          ctx.beginPath(); ctx.arc(x, y, baseR, 0, Math.PI*2); ctx.fill();
         }
 
         if (n.label) {
@@ -3210,6 +3241,34 @@
     };
 
     initProjectFiltering();
+
+    // ==================== SCROLL REVEAL ====================
+    (function initScrollReveal() {
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+          } else {
+            entry.target.classList.remove('revealed');
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+      function observeAll() {
+        document.querySelectorAll('.reveal').forEach(el => {
+          revealObserver.unobserve(el);
+          revealObserver.observe(el);
+        });
+      }
+
+      observeAll();
+
+      // Re-observe whenever project filter changes (cards get shown/hidden)
+      const projectsGrid = document.querySelector('.projects-grid');
+      if (projectsGrid) {
+        new MutationObserver(() => observeAll()).observe(projectsGrid, { attributes: true, subtree: true, attributeFilter: ['class'] });
+      }
+    })();
   </script>
 
 </body>
